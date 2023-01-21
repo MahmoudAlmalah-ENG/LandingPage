@@ -90,7 +90,7 @@ section {
     transition: ease 0.3s all;
 }
 
-.navbar__menu .menu__link--active {
+.active {
     background: #333;
     color: #fff;
 }
@@ -266,4 +266,112 @@ section.your-active-class .landing__container::after {
     z-index: 10;
 }
 
+/* responsive navbar menu toggle */
+.navbar__menu-toggle {
+    display: none;
+}
+
+@media only screen and (max-width: 35em){
+    .navbar__menu-toggle {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1em;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 35em){
+    .navbar__menu {
+        display: none;
+    }
+
+    .navbar__menu-toggle.active .navbar__menu {
+        display: block;
+    }
+
+    .navbar__menu-toggle.active .navbar__menu-toggle-icon {
+        background: #000;
+    }
+
+    .navbar__menu-toggle .navbar__menu-toggle-icon {
+        display: block;
+        width: 35px;
+        height: 5px;
+        background: #fff;
+        margin: 6px 0;
+        transition: background 0.2s ease-in;
+    }
+
+    .navbar__menu {
+        background: #000;
+        position: absolute;
+        top: 3.5em;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar__menu li {
+        display: block;
+        padding: 1em;
+        border-bottom: 1px solid #fff;
+    }
+
+    .navbar__menu li:last-child {
+        border-bottom: none;
+    }
+
+    .navbar__menu li a {
+        color: #fff;
+    }
+
+    .navbar__menu li a:hover {
+        color: #000;
+        background: #fff;
+    }
+
+    .navbar__menu li a.active {
+        color: #000;
+        background: #fff;
+    }
+
+    .navbar__menu li a.active:hover {
+        color: #fff;
+        background: #000;
+    }
+
+    .navbar__menu li a.active::after {
+        display: none;
+    }
+
+    .navbar__menu li a::after {
+        display: none;
+    }
+
+    .navbar__menu li a:hover::after {
+        display: none;
+    }
+
+    .navbar__menu li a.active:hover::after {
+        display: none;
+    }
+
+    .navbar__menu li a.active::before {
+        display: none;
+    }
+
+    .navbar__menu li a::before {
+        display: none;
+    }
+
+    .navbar__menu li a:hover::before {
+        display: none;
+    }
+
+    .navbar__menu li a.active:hover::before {
+        display: none;
+    }
+}
 

@@ -65,6 +65,18 @@ function buildNav() {
         const section = document.getElementById(e.target.dataset.nav);
         section.scrollIntoView({behavior: "smooth"});
     });
+    // nav bar active state on scroll and click
+    window.addEventListener('scroll', () => {
+        sections.forEach(section => {
+            if (isInViewport(section)) {
+                const activeLink = document.querySelector(`[data-nav=${section.id}]`);
+                activeLink.classList.add('active');
+            } else {
+                const activeLink = document.querySelector(`[data-nav=${section.id}]`);
+                activeLink.classList.remove('active');
+            }
+        });
+    })
 }
 
 
@@ -115,15 +127,3 @@ buildNav();
 scrollToTop();
 // Add new section
 addNewSection();
-
-// Set sections as active
-window.addEventListener('scroll', () => {
-    sections.forEach(section => {
-        if (isInViewport(section)) {
-            section.classList.add('your-active-class');
-        } else {
-            section.classList.remove('your-active-class');
-        }
-    });
-});
-
